@@ -1,0 +1,33 @@
+<!-- chatgpt_flask/app/templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Flask App</title>
+</head>
+<body>
+    <h1>Chat with GPT</h1>
+    <div>
+        <input type="text" id="userMessage" placeholder="Type your message here...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <div id="response"></div>
+
+    <script>
+        async function sendMessage() {
+            const userMessage = document.getElementById('userMessage').value;
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userMessage })
+            });
+            const data = await response.json();
+            document.getElementById('response').innerText = data.response;
+        }
+    </script>
+</body>
+</html>
