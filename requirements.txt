@@ -1,6 +1,6 @@
 # chatgpt_flask/requirements.txt
 
-Flask==2.0.3
-Werkzeug==2.0.3
+Flask==2.2.5
+Werkzeug==3.0.3
 python-dotenv==0.19.2
 openai==0.28.0
